@@ -1,9 +1,7 @@
 .todo-list {
   width: 500px;
   margin: auto;
-  border: 1px solid red;
   padding: 10px;
-  max-height: 600px;
 }
 
 .todo-list h1 {

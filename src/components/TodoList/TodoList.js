@@ -1,28 +1,34 @@
 import { useState } from "react"
 import AddTask from "../AddTask/AddTask"
 import Task from "../Task/Task"
+import TodoFooter from "../TodoFooter/TodoFooter"
 import "./TodoList.css"
 
 const TodoList = () => {
 
   const [value, setValue] = useState('')
-  const [tasks, setTasks] = useState([{ id: Math.random(), task: "value", completed: true }])
+  const [tasks, setTasks] = useState([
+    { id: Math.random(), task: "Buy a Car", completed: false },
+    { id: Math.random(), task: "Find a Job", completed: false },
+    { id: Math.random(), task: "Learn React", completed: true },
+    { id: Math.random(), task: "Learn Java Script", completed: true },
+  ])
+
   const onDelete = (id) => {
     setTasks(tasks.filter(task => task.id !== id))
   }
 
   const handleChange = (id) => {
-    const updatedTask = tasks.map(task => {
+    const updatedTasks = tasks.map(task => {
       if (task.id === id) {
-        return { ...task, completed: !task.completed }
+        return { ...task, completed: !task.completed };
       }
-      return task
-    })
-    setTasks(updatedTask)
-  }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
 
   const handleEditTask = (id, editedText) => {
-    // Find the task to edit in your tasks array based on the 'id'
     const updatedTasks = tasks.map((task) => {
       if (task.id === id) {
         return { ...task, task: editedText };
@@ -30,7 +36,7 @@ const TodoList = () => {
       return task;
     });
 
-    setTasks(updatedTasks); // Update the tasks array
+    setTasks(updatedTasks);
   };
 
   return (
@@ -44,7 +50,12 @@ const TodoList = () => {
       <Task
         tasks={tasks}
         onDelete={onDelete}
-        handleChange={handleChange} />
+        handleChange={handleChange}
+        handleEditTask={handleEditTask}
+      />
+      <TodoFooter
+        tasks={tasks}
+      />
     </div>
   )
 }

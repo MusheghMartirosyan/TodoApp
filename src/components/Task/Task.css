@@ -41,4 +41,34 @@ button {
 
 button:hover {
   background-color: #c82323;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.editbtn {
+  background-color: rgb(255, 221, 0);
+  color: black;
+}
+
+.editbtn:hover {
+  background-color: rgb(255, 187, 0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit {
+  display: flex;
+  flex-wrap: inherit;
+}
+
+.savebtn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.savebtn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

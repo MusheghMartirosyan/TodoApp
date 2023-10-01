@@ -25,13 +25,13 @@ const Task = ({ tasks, onDelete, handleChange, handleEditTask }) => {
       {tasks.map((t) => (
         <li key={t.id} style={{ backgroundColor: t.completed ? "lightgreen" : "" }}>
           {editingTaskId === t.id ? (
-            <div>
+            <div className="edit">
               <input
                 type="text"
                 value={editedTask}
                 onChange={(e) => setEditedTask(e.target.value)}
               />
-              <button onClick={() => handleEditSave(t.id)}>Save</button>
+              <button className="savebtn" onClick={() => handleEditSave(t.id)}>Save</button>
             </div>
           ) : (
             <>
@@ -47,7 +47,7 @@ const Task = ({ tasks, onDelete, handleChange, handleEditTask }) => {
               </label>
               <div>
                 <button onClick={() => { onDelete(t.id) }}><BsTrashFill /></button>
-                <button onClick={() => { handleEditClick(t.id, t.task) }}><FiEdit /></button>
+                <button className="editbtn" onClick={() => { handleEditClick(t.id, t.task) }}><FiEdit /></button>
               </div>
             </>
           )}

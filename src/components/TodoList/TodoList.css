@@ -8,3 +8,9 @@
   color: #fff;
   text-align: center;
 }
+
+@media screen and (max-width: 800px) {
+  .todo-list {
+    width: 100%;
+  }
+}
